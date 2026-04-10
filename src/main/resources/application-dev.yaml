@@ -1,0 +1,56 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      package-to-scan: com.javanauta.fake_api_us.infrastructure.entities
+      format_sql: true
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  cloud:
+    balancer:
+      ribbon:
+        enable: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: hiranfb26@gmail.com
+    password: elvk udpx yfvw bqto
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+send:
+  mail:
+    from: hiranfb26@gmail.com
+    to: hiranfb26@gmail.com
+
+topico:
+  fake-api:
+    consumer:
+      nome: fake-api-consumer-products-v2
+      group-id: javanauta
+    producer:
+      nome: fake-api-producer-products-v2
+
+
+fake-api:
+  url: https://dummyjson.com
+
+server:
+  port: 8181
